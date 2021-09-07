@@ -14,7 +14,7 @@ jobs:
       uses: actions/setup-python@v2.2.2
       with:
       # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
-        token: ${{ github.token }} # optional, default is ${{ github.token }}
+        token: ${{ secrets.PERSONAL_TOKEN }} # optional, default is ${{ github.token }}
     - name: Download
       run: |
         python main.py
