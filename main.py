@@ -13,12 +13,12 @@ api = json.loads(res)
 
 api = api['images']
 downloadURL = "https://bing.com" + api[0]['url']
-dateTime = api[0]['startdate']
+dateTime = api[0]['enddate']
 copyright = api[0]['copyright'] # 获取版权信息
 rstr = r"[\/\\\:\*\?\"\<\>\|]"  # '/ \ : * ? " < > |'
 new_copyright = re.sub(rstr, "_", copyright)  # 替换为下划线
 
-req.urlretrieve(downloadURL, "./wallpaper/{0}{1}{2}.jpg".format(dateTime, '@', new_copyright))
+req.urlretrieve(downloadURL, "./wallpaper/{0}{1}{2}.jpg".format(dateTime, '-', new_copyright))
 req.urlretrieve(url, "./wallpaper/{}.json".format(dateTime))
 
 # except:
